@@ -2,7 +2,7 @@ object findAllFactors {
 
 def main(args: Array[String]) {
 	args.length match {
-		case 1 => println("Finding factor of ", args(0));
+		case 1 => println("Finding factors of " + args(0));
 		case _ => argumentErr;
 	}
 	
@@ -10,16 +10,31 @@ def main(args: Array[String]) {
 	var factors:List[BigInt] = List[BigInt](1);
 	
 	
-	if(n < 3) factors::=n;
-	else if(n % 2 == 0) factors::=2:BigInt;
-	else factors:::findFactors(3:BigInt, n);
+
+	if(n < 3) factors::List(n);
+	else factors = findFactors(n);
 	
 	println(factors)
+    println("Total Factors: " + numberOfFactors(factors))
 }
 
 
 def argumentErr = { println ("Requires 1 Integer Argument"); System.exit(1) };
 
+<<<<<<< .mine
+def findFactors(n: BigInt):List[BigInt] = {
+
+	var list:List[BigInt] = List(1);
+    def loop (i:BigInt, n:BigInt):List[BigInt] = {
+        if(i >= n / 2) { List(n) }
+        else if (n % i == 0) {
+            i::loop(i + 1, n);
+        } else {
+            loop(i + 1, n);
+        }
+    }
+    list:::loop(2, n)
+=======
 def findFactors(x: BigInt, n: BigInt):List[BigInt] = {
 	var list = List[BigInt]()
 	var i:BigInt = 3;
@@ -27,7 +42,15 @@ def findFactors(x: BigInt, n: BigInt):List[BigInt] = {
 		if(n % i == 0) list::=i
 
 	list
+>>>>>>> .r5
 }
 
+def numberOfFactors (n: BigInt):Int = {
+    findFactors(n).size
+}
+
+def numberOfFactors(l: List[BigInt]):Int = {
+    l.size
+}
 
 }
