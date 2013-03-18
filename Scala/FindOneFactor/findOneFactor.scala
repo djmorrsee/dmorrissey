@@ -1,8 +1,10 @@
 object findOneFactor {
 
     def main(args: Array[String]) {
+        val startTime = System.currentTimeMillis;
+
         args.length match {
-            case 1 => println("Finding factor of ", args(0));
+            case 1 => println("Finding factor of " + args(0));
             case _ => argumentErr;
         }
         
@@ -13,7 +15,11 @@ object findOneFactor {
         else if(n % 2 == 0) factor = 2;
         else factor = findFactor(3:BigInt, n);
         
+        val endTime = System.currentTimeMillis;
+
         println(factor)
+
+        println("Time to complete: " + ((endTime - startTime).toDouble / 1000).toDouble);
     }
 
 
@@ -22,7 +28,7 @@ object findOneFactor {
     def findFactor (x: BigInt, n: BigInt):BigInt = {
         if (n % x == 0) x
         
-        else if (x * x > n) n
+        else if (x * x >= n) n
         
         else findFactor(x + 2, n)
     }

@@ -25,7 +25,7 @@ def findFactors(n: BigInt):List[BigInt] = {
 
 	var list:List[BigInt] = List(1);
     def loop (i:BigInt, n:BigInt):List[BigInt] = {
-        if(i >= n / 2) { List(n) }
+        if(i > n / 2) { List(n) }
         else if (n % i == 0) {
             i::loop(i + 1, n);
         } else {
