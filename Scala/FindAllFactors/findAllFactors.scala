@@ -21,7 +21,6 @@ def main(args: Array[String]) {
 
 def argumentErr = { println ("Requires 1 Integer Argument"); System.exit(1) };
 
-<<<<<<< .mine
 def findFactors(n: BigInt):List[BigInt] = {
 
 	var list:List[BigInt] = List(1);
@@ -34,15 +33,6 @@ def findFactors(n: BigInt):List[BigInt] = {
         }
     }
     list:::loop(2, n)
-=======
-def findFactors(x: BigInt, n: BigInt):List[BigInt] = {
-	var list = List[BigInt]()
-	var i:BigInt = 3;
-	while (i * i < n)
-		if(n % i == 0) list::=i
-
-	list
->>>>>>> .r5
 }
 
 def numberOfFactors (n: BigInt):Int = {
