@@ -1,6 +1,7 @@
 object findAllFactors {
 
 def main(args: Array[String]) {
+    val startTime = System.currentTimeMillis;
 	args.length match {
 		case 1 => println("Finding factors of " + args(0));
 		case _ => argumentErr;
@@ -11,11 +12,14 @@ def main(args: Array[String]) {
 	
 	
 
-	if(n < 3) factors::List(n);
-	else factors = findFactors(n);
+	if(n < 3) factors::List(n)
+	else factors = findFactors(n)
 	
+    val duration = System.currentTimeMillis - startTime
+
 	println(factors)
     println("Total Factors: " + numberOfFactors(factors))
+    println("Time Taken: " + duration.toDouble / 1000.0)
 }
 
 
